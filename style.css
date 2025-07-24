@@ -1,0 +1,89 @@
+/* css for header and logo */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.logo {
+  width: 100px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+}
+.nav-items > ul > li {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+/* css for restaurant container and cards */
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.res-card {
+  width: 250px;
+  height: 370px;
+  margin: 5px;
+}
+.card-info{
+  overflow-wrap: anywhere;
+  padding: 0px 5px;
+}
+.card-info h3{
+  margin : 5px !important;
+  color: green;
+}
+.card-info h4{
+  margin : 5px !important;
+}
+.res-card:hover {
+  cursor: pointer;
+  border: 1px solid #c3c3c3;
+}
+.search input, button{
+  padding: 5px;
+}
+.card-image {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+}
+.filter{
+  margin: 20px 10px;
+  display: flex;
+}
+.filter-btn{
+  padding: 5px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+/* css for shimer Ui */
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+.shimmer-card{
+  width: 250px;
+  height: 370px;
+  background-color: #c3c3c3; 
+  margin: 5px;
+}
+.login{
+  padding: 5px;
+  border: 1px solid #c3c3c3;
+  cursor: pointer;
+  border-radius: 5px;
+}

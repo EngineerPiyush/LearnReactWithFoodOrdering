@@ -1,0 +1,13 @@
+# Ignore root node_modules
+/node_modules/
+
+# Ignore server's node_modules
+/server/node_modules/
+
+# Common ignores
+.vscode/
+.env
+.DS_Store
+Thumbs.db
+.parcel-cache/
+dist/
