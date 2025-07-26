@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCards";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
-
+import { MENU_URL } from "../utils/constants";
+import useStatusOfInternet from "../utils/useStatusOfInternet";
 const Body = () => {
   const [restaurantList, updateRestaurantList] = useState([]);
   const [filterdRestaurant, updateFilteredRestaurant] = useState([]);
@@ -20,7 +21,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch("http://localhost:3001/restaurants");
+      const data = await fetch(MENU_URL);
       const json = await data.json();
       const cardsArray = json?.data?.cards || [];
       const gridCard = cardsArray.find(
@@ -34,6 +35,11 @@ const Body = () => {
       updateFilteredRestaurant(restaurants);
     } catch (error) {}
   };
+
+const statusOfInternet = useStatusOfInternet();
+if(statusOfInternet===false){
+  return <h1>Looks like you are Offline Please check your internet connection</h1>
+}
 
   return restaurantList.length === 0 ? (
     <Shimmer />
