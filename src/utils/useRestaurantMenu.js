@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 const useRestaurantMenu = (resId) => {
   const [resInfo, updateResInfo] = useState({
     name: "",
-    items: null,
+    categories: [],
   });
+
   useEffect(() => {
     fetchData();
   }, [resId]);
+
   const fetchData = async () => {
     try {
       const data = await fetch(MENU_URL + resId);
@@ -20,31 +22,33 @@ const useRestaurantMenu = (resId) => {
           c?.card?.card?.["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
       );
-
       const restaurantName = resCard?.card?.card?.info?.name || "Restaurant";
 
-      // Extract recommended items
+      // Extract all item categories
       const regularCards =
         cards.find((card) => card?.groupedCard)?.groupedCard?.cardGroupMap
           ?.REGULAR?.cards || [];
 
-      const recommendedCard = regularCards.find(
-        (c) =>
-          c?.card?.card?.["@type"] ===
-            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" &&
-          c?.card?.card?.title === "Recommended"
-      );
-
-      const recommendedItems = recommendedCard?.card?.card?.itemCards || [];
+      const itemCategories = regularCards
+        .filter(
+          (c) =>
+            c?.card?.card?.["@type"] ===
+            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        )
+        .map((c) => ({
+          title: c.card.card.title,
+          items: c.card.card.itemCards,
+        }));
 
       updateResInfo({
         name: restaurantName,
-        items: recommendedItems,
+        categories: itemCategories,
       });
     } catch (error) {
-      console.error("Error fetching recommended menu:", error);
+      console.error("Error fetching menu:", error);
     }
   };
+
   return resInfo;
 };
 export default useRestaurantMenu;

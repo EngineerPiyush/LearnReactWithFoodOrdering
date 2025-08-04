@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCards";
+import { useState, useEffect, useContext } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCards";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import { MENU_URL } from "../utils/constants";
 import useStatusOfInternet from "../utils/useStatusOfInternet";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [restaurantList, updateRestaurantList] = useState([]);
   const [filterdRestaurant, updateFilteredRestaurant] = useState([]);
@@ -15,6 +16,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   // Here we are fetching the data from api after fetching data we need to update both with
   // new data restaurantList and filteredRestaurant and in searching we will use restaurantList
@@ -36,11 +39,14 @@ const Body = () => {
     } catch (error) {}
   };
 
-const statusOfInternet = useStatusOfInternet();
-if(statusOfInternet===false){
-  return <h1>Looks like you are Offline Please check your internet connection</h1>
-}
+  const statusOfInternet = useStatusOfInternet();
+  if (statusOfInternet === false) {
+    return (
+      <h1>Looks like you are Offline Please check your internet connection</h1>
+    );
+  }
 
+  const CardWithPromotedLabel = withPromotedLabel(RestaurantCard);
   return restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
@@ -78,10 +84,30 @@ if(statusOfInternet===false){
         >
           Top Rated Restaurent
         </button>
+        <div className="userName">
+          <label htmlFor="userName">UserName : </label>
+          <input
+            id="userName"
+            type="text"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+        </div>
       </div>
       <div className="res-container">
         {filterdRestaurant.map((restaurant) => (
-         <Link key={restaurant?.info?.id} to={"/restaurants/"+restaurant?.info?.id}><RestaurantCard restaurantData={restaurant} /></Link>
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
+          >
+            {restaurant?.info?.avgRating > 4.3 ? (
+              <CardWithPromotedLabel restaurantData={restaurant} />
+            ) : (
+              <RestaurantCard restaurantData={restaurant} />
+            )}
+          </Link>
         ))}
       </div>
     </div>

@@ -1,10 +1,11 @@
-import UserClass from "./UserClass";
+// import UserClass from "./UserClass";
 import { Component } from "react";
-import User from "./User";
+// import User from "./User";
+import UserContext from '../utils/UserContext';
 class About extends Component {
   constructor() {
     super();
-    console.log("parent constructor called");
+    // console.log("parent constructor called");
     this.state = {
       name: "Piyush",
       designation: "Software Engineer",
@@ -16,22 +17,22 @@ class About extends Component {
     // props or state of a child component
 
      this.time = setInterval(() => {
-      console.log("set Interval called inside About Component")
+      // console.log("set Interval called inside About Component")
      }, 1000);
     this.setState({
       name: "Dubey Ji",
     });
-    console.log("parent component did mount called");
+    // console.log("parent component did mount called");
   }
   componentDidUpdate() {
-    console.log("parent component Did Update called");
+    // console.log("parent component Did Update called");
   }
   componentWillUnmount(){
-    console.log("component will unmount called")
+    // console.log("component will unmount called")
      clearInterval(this.time);
   }
   render() {
-    console.log("parent render called");
+    // console.log("parent render called");
     // const UserInfo = {
     //   name: "Piyush",
     //   location: "Noida",
@@ -39,10 +40,14 @@ class About extends Component {
     // };
     return (
       <div>
-        <h1>{this.state.name}</h1>
-        <UserClass />
-        <User/>
+        {/* <h1>{this.state.name}</h1> */}
+        {/* <UserClass />
+        <User/> */}
         {/* <UserClass UserInfo={UserInfo} /> */}
+        LoggedIn User : 
+        <UserContext.Consumer>
+          {({loggedInUser})=> <h1>{loggedInUser}</h1>}
+        </UserContext.Consumer>
       </div>
     );
   }

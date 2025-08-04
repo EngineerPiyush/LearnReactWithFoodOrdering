@@ -26,33 +26,148 @@
 }
 
 /* css for restaurant container and cards */
+
 .res-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
+.res-container a {
+  text-decoration: none;
+  position: relative;
+}
+/* Container for the entire menu */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+/* Restaurant name */
+.restaurant-name {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Category block */
+.category {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+/* Header for each category */
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  padding: 0 10px;
+  color: green;
+  background: #c3c3c3;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* Items inside each category */
+.category-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual menu item */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Text block for item details */
+.menu-description {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.menu-description h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.menu-description p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* Image styling */
+.menu-image {
+  position: relative;
+}
+.menu-image img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.menu-image button {
+  background-color: black;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  position: absolute;
+  cursor: pointer;
+}
+
+.promoted {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  position: absolute;
+  top: 7;
+  left: 7;
+}
+.promoted a {
+  text-decoration: none;
+}
 .res-card {
   width: 250px;
   height: 370px;
   margin: 5px;
 }
-.card-info{
+.card-info {
   overflow-wrap: anywhere;
   padding: 0px 5px;
 }
-.card-info h3{
-  margin : 5px !important;
+.card-info h3 {
+  margin: 5px !important;
   color: green;
 }
-.card-info h4{
-  margin : 5px !important;
+.card-info h4 {
+  margin: 5px !important;
 }
 .res-card:hover {
   cursor: pointer;
   border: 1px solid #c3c3c3;
 }
-.search input, button{
+.search input,
+button {
   padding: 5px;
 }
 .card-image {
@@ -60,28 +175,35 @@
   height: 200px;
   box-sizing: border-box;
 }
-.filter{
+.filter {
   margin: 20px 10px;
   display: flex;
 }
-.filter-btn{
+.filter-btn {
   padding: 5px;
   margin-left: 20px;
   cursor: pointer;
 }
+.filter .userName {
+  margin-left: 20px;
+}
+.filter .userName input {
+  padding: 5px;
+}
+
 /* css for shimer Ui */
-.shimmer-container{
+.shimmer-container {
   display: flex;
   flex-wrap: wrap;
   margin-top: 70px;
 }
-.shimmer-card{
+.shimmer-card {
   width: 250px;
   height: 370px;
-  background-color: #c3c3c3; 
+  background-color: #c3c3c3;
   margin: 5px;
 }
-.login{
+.login {
   padding: 5px;
   border: 1px solid #c3c3c3;
   cursor: pointer;

@@ -3,10 +3,13 @@ import Shimmer from "./shimmer";
 import { useParams } from "react-router-dom";
 // import { MENU_URL } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
+  const [showIndex,setShowIndex] = useState(null);
 //   const [resInfo, updateResInfo] = useState({
 //     name: "",
 //     items: null,
@@ -56,30 +59,19 @@ const RestaurantMenu = () => {
 //   }
 // };
 
-return resInfo.items === null ? (
+return resInfo.categories === null ? (
   <Shimmer />
 ) : (
   <div className="menu-container">
     <h2 className="restaurant-name">{resInfo.name}</h2>
 
-    {resInfo.items.map((item, index) => {
-      const { name, description, price, imageId } = item?.card?.info || {};
-      return (
-        <div className="menu" key={index}>
-          <h3>{name}</h3>
-          <p>{description}</p>
-          <p>₹{price / 100}</p>
-          {imageId && (
-            <img
-              src={`https://media-assets.swiggy.com/swiggy/image/upload/${imageId}`}
-              alt={name}
-              width="150"
-            />
-          )}
-        </div>
-      );
-    })}
+    {resInfo.categories.map((category, index) => (
+      <RestaurantCategory key={index} data={category} showItems={index === showIndex ? true : false}
+        setShowIndex={()=>  setShowIndex(prevIndex => (prevIndex === index ? null : index))}
+      />
+    ))}
   </div>
 );
+
 };
 export default RestaurantMenu;
