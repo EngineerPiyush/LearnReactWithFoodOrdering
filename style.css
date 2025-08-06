@@ -1,10 +1,21 @@
 /* css for header and logo */
+.header::after {
+  content: ""; /* Required for pseudo-element to render */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e2f4c8;
+  z-index: -1;
+  height: 90px;
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .logo {
@@ -23,6 +34,9 @@
   padding: 10px;
   font-size: 18px;
   font-weight: 550;
+}
+.nav-items > ul > li a {
+  text-decoration: none;
 }
 
 /* css for restaurant container and cards */
@@ -208,4 +222,15 @@ button {
   border: 1px solid #c3c3c3;
   cursor: pointer;
   border-radius: 5px;
+}
+.cart {
+  margin: 80px 120px;
+}
+.cart button  {
+   background-color: black;
+   color: #fff;
+   padding: 10px 5px;
+   border-radius: 5px;
+   font-weight: 600;
+   cursor: pointer;
 }

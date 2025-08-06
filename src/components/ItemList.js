@@ -1,4 +1,11 @@
+import { useDispatch } from "react-redux";
+import {addItem} from "../utils/cartSlice";
 const ItemList = ({ items }) => {
+const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item))
+  }
   return (
     <div className="category-items">
       {items.map((item, idx) => {
@@ -11,7 +18,7 @@ const ItemList = ({ items }) => {
               <p>₹{price / 100}</p>
             </div>
             <div className="menu-image">
-              <button>Add +</button>
+              <button onClick={()=>handleAddItem(item)}>Add +</button>
               {imageId && (
                 <img
                   src={`https://media-assets.swiggy.com/swiggy/image/upload/${imageId}`}

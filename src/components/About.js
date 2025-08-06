@@ -1,7 +1,7 @@
-// import UserClass from "./UserClass";
+import UserClass from "./UserClass";
 import { Component } from "react";
 // import User from "./User";
-import UserContext from '../utils/UserContext';
+// import UserContext from '../utils/UserContext';
 class About extends Component {
   constructor() {
     super();
@@ -41,13 +41,13 @@ class About extends Component {
     return (
       <div>
         {/* <h1>{this.state.name}</h1> */}
-        {/* <UserClass />
-        <User/> */}
+        <UserClass />
+        {/* <User/> */}
         {/* <UserClass UserInfo={UserInfo} /> */}
-        LoggedIn User : 
+        {/* LoggedIn User : 
         <UserContext.Consumer>
           {({loggedInUser})=> <h1>{loggedInUser}</h1>}
-        </UserContext.Consumer>
+        </UserContext.Consumer> */}
       </div>
     );
   }
