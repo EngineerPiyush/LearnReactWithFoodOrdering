@@ -164,7 +164,10 @@
   width: 250px;
   height: 370px;
   margin: 5px;
+  border-radius: 10px;
+  transition: height 0.3s ease;
 }
+
 .card-info {
   overflow-wrap: anywhere;
   padding: 0px 5px;
@@ -178,7 +181,6 @@
 }
 .res-card:hover {
   cursor: pointer;
-  border: 1px solid #c3c3c3;
 }
 .search input,
 button {
@@ -188,9 +190,17 @@ button {
   width: 100%;
   height: 200px;
   box-sizing: border-box;
+  border-radius: 10px;
+  transition: height 1s ease;
+}
+.card-image:hover {
+  height: 190px;
+}
+.res-card:hover .card-image {
+  height: 190px;
 }
 .filter {
-  margin: 20px 10px;
+  margin: 40px 30px 30px;
   display: flex;
 }
 .filter-btn {
@@ -226,11 +236,11 @@ button {
 .cart {
   margin: 80px 120px;
 }
-.cart button  {
-   background-color: black;
-   color: #fff;
-   padding: 10px 5px;
-   border-radius: 5px;
-   font-weight: 600;
-   cursor: pointer;
+.cart button {
+  background-color: black;
+  color: #fff;
+  padding: 10px 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
 }
