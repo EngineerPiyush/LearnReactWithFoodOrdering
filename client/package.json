@@ -1,11 +1,11 @@
 {
   "name": "ch-1",
   "version": "1.0.0",
- "scripts": {
-  "dev": "parcel index.html",          
-  "build": "parcel build index.html",     
-  "start": "serve dist" 
- },                 
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "start": "serve dist"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,5 +18,8 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.22.0",
     "serve": "^14.2.4"
+  },
+  "devDependencies": {
+    "@parcel/transformer-raw": "^2.15.4"
   }
 }
