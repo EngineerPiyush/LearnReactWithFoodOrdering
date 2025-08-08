@@ -1,2 +1,2 @@
 export const   CDN_URL =  "https://media-assets.swiggy.com/swiggy/image/upload/";
-export const MENU_URL = "http://localhost:3001/restaurants/";
+export const MENU_URL = "https://learnreactwithfoodordering.onrender.com/restaurants/";
