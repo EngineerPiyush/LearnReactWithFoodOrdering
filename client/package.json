@@ -1,9 +1,11 @@
 {
   "name": "ch-1",
   "version": "1.0.0",
-  "scripts": {
-    "start": "parcel index.html"
-  },
+ "scripts": {
+  "dev": "parcel index.html",          
+  "build": "parcel build index.html",     
+  "start": "serve dist" 
+ },                 
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.22.0",
+    "serve": "^14.2.4"
   }
 }
