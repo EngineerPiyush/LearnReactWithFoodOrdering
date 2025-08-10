@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "url:../assets/logo.png";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import useStatusOfInternet from "../utils/useStatusOfInternet";
 import { useSelector } from "react-redux";
