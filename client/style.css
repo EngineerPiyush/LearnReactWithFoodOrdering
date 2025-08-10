@@ -287,6 +287,7 @@
 .about-user button {
   padding: 10px;
   font-weight: 600;
+  cursor: pointer;
 }
 @media (max-width: 1024px) {
   .menu {
