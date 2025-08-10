@@ -15,5 +15,14 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "node-fetch": "^3.3.2"
+  },
+  "targets": {
+    "default": {
+      "distDir": "dist",
+      "publicUrl": "./"
+    }
+  },
+  "alias": {
+    "url:": "@parcel/transformer-raw"
   }
 }
