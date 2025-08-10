@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "start": "serve dist"
+    "start": "serve dist --single"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^6.22.0",
+    "react-router-dom": "^6.30.1",
     "serve": "^14.2.4"
   },
   "devDependencies": {
