@@ -363,4 +363,7 @@
     font-weight: bold;
     cursor: pointer;
   }
+  .about-user img {
+    width: 200px;
+  }
 }
