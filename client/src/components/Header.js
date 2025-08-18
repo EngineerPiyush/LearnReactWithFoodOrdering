@@ -5,6 +5,7 @@ import useStatusOfInternet from "../utils/useStatusOfInternet";
 import { useSelector } from "react-redux";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import cartLogo from "../assets/cartLogo.png";
 
 const Header = () => {
   const arr = useState("Login");
@@ -25,6 +26,13 @@ const Header = () => {
         </Link>
       </div>
       <div className="user-info">{loggedInUser}</div>
+      {/* Mobile-only Cart Icon */}
+      <div className="mobile-cart-icon">
+        <Link to="/cart">
+          <img className="cart-logo" src={cartLogo} alt="CartLogo" />{" "}
+          <span className="cart-count">{cartItems.length}</span>
+        </Link>
+      </div>
       <div className="hamburger" onClick={() => setShowSidebar(!showSidebar)}>
         {showSidebar ? "✖" : "☰"}
       </div>
@@ -63,11 +71,6 @@ const Header = () => {
               <li>
                 <Link to="/about" onClick={() => setShowSidebar(false)}>
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart" onClick={() => setShowSidebar(false)}>
-                  Cart ({cartItems.length} items)
                 </Link>
               </li>
               <button
